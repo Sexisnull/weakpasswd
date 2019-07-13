@@ -1,7 +1,7 @@
 # /usr/bin/env python3
 # -*-coding:utf8-*-
 # author: Sexisnull
-# explain: 根据常用词及常用后缀组合生成密码
+# explain: 根据常见词及常用后缀组合生成密码
 #   common_suffix：常见后缀列表，可自行扩展
 #   common_conjunction：常见连接符
 #   word1和word2：输入要生成的相关信息
