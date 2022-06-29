@@ -6,16 +6,16 @@
 #   common_conjunction：常见连接符
 #   word1和word2：输入要生成的相关信息
 
-common_suffix = ['@123', '@123456', '@12345678', '@123456789', '@1234567890', '@0.123', '@0.123456', '@0.123456789',
-                 '.123', '.123456', '.123456789',
-                 '1', '111', '123456', '123456789', '666', '888',
+common_suffix = ['1', '111', '666', '888', '123', '123456', '0.123', '0.123456',
+                 '2020', '2021', '2022',
                  '!', '!@#', '!@#$%^', '!@#$',
-                 'qwer', 'qwerty']
+                 'qwer', 'qwerty'
+                 ]
 
-common_conjunction = ['@', '.', '!']
+common_conjunction = ['@', '.', '#']
 
 input_word1 = ['zhangsan']
-input_word2 = ['github.com']
+input_word2 = ['github.com','github']
 
 # 首字母大写转换
 
@@ -42,18 +42,21 @@ def str_Permutation(nword1,nword2):
 
     # 单字符添加后缀
     two_group = []
-    for n1 in nword1:
-        for s in common_suffix:
-            two_group.append(n1+s)
-    for n2 in nword2:
-        for s in common_suffix:
-            two_group.append(n2+s)
+    for c in common_conjunction:
+        for n1 in nword1:
+            for s in common_suffix:
+                two_group.append(n1+c+s)
+    for c in common_conjunction:
+        for n2 in nword2:
+            for s in common_suffix:
+                two_group.append(n2+c+s)
 
     # 随机组合加后缀
     three_group = []
     for i in one_group:
-        for s in common_suffix:
-            three_group.append(i+s)
+        for c in common_conjunction:
+            for s in common_suffix:
+                three_group.append(i+c+s)
 
     return one_group+two_group+three_group
 
